@@ -10,8 +10,7 @@ public class Util {
        private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
        private static final String URL = "jdbc:mysql://localhost:3306/db";
        private static final String USER = "root";
-       private static final String PASSWORD = "1111";
-
+       private static final String PASSWORD = "password";
        public static SessionFactory sessionFactory;
        public static SessionFactory getConnection() {
               try {
@@ -29,8 +28,11 @@ public class Util {
                      e.printStackTrace();
               }
               return sessionFactory;
+       }
 
-
+       public static void closeSessionFactory() {
+              if (sessionFactory != null) sessionFactory.close();
+              System.out.println("Util: closeSessionFactory");
        }
 
 }
