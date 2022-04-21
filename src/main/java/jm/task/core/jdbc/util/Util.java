@@ -6,30 +6,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-/*
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-*/
-
 public class Util {
-       // реализуйте настройку соеденения с БД
        private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
        private static final String URL = "jdbc:mysql://localhost:3306/db";
        private static final String USER = "root";
-       private static final String PASSWORD = "password";
+       private static final String PASSWORD = "1111";
 
-       // public static Connection connection;
-      /* public static Connection getConnection() {
-              try {
-                     Class.forName(DRIVER);
-                     connection = DriverManager.getConnection (URL, USER, PASSWORD);
-              } catch (SQLException | ClassNotFoundException e) {
-                     e.printStackTrace();
-              }
-              return connection;
-       }*/
        public static SessionFactory sessionFactory;
        public static SessionFactory getConnection() {
               try {
@@ -50,8 +32,5 @@ public class Util {
 
 
        }
-       public static void closeConnection() {
-              if (sessionFactory != null)
-                     sessionFactory.close();
-       }
+
 }
